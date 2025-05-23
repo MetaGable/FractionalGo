@@ -76,7 +76,7 @@ class GameRenderer:
         """Render the game board"""
         # Calculate visibility for current player
         current_player = self.game_state.get_current_player()
-        self.visible_positions[current_player.id] = current_player.calculate_visibility(self.game_state.board)
+        self.visible_positions[current_player.id] = current_player.calculate_visibility(self.game_state.board, self.config)
         
         # Draw tiles
         for y in range(self.game_state.board.height):
