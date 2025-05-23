@@ -34,20 +34,20 @@ class Player:
         if army in self.armies:
             self.armies.remove(army)
             
-    def calculate_visibility(self, board: Board) -> Set[Tuple[int, int]]:
+    def calculate_visibility(self, board: Board, config: dict) -> Set[Tuple[int, int]]:
         """Calculate all tiles visible to this player's armies"""
         visible_tiles = set()
         
         for army in self.armies:
             # Get base visibility range based on the army's position
             tile = board.get_tile(army.x, army.y)
-            base_range = self.config['visibility']['base_range']
+            base_range = config['visibility']['base_range']
             
             # Adjust for terrain
             if tile.type == TileType.FOREST:
-                range_mod = self.config['visibility']['forest_penalty']
+                range_mod = config['visibility']['forest_penalty']
             elif tile.type == TileType.MOUNTAIN:
-                range_mod = self.config['visibility']['mountain_bonus']
+                range_mod = config['visibility']['mountain_bonus']
             else:
                 range_mod = 0
                 
