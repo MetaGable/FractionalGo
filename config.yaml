@@ -1,0 +1,132 @@
+# Strategic Conquest Game Configuration
+
+# Board settings
+board:
+  width: 20
+  height: 20
+  tile_size: 40  # Pixel size of each tile
+
+# Game parameters
+game:
+  max_players: 4
+  starting_army_size: 100
+  starting_food: 200
+  turn_limit: 100  # Maximum turns before forced end
+
+# Movement settings
+movement:
+  # Smaller armies move faster
+  tiers:
+    - {min: 1, max: 25, speed: 4}
+    - {min: 26, max: 50, speed: 3}
+    - {min: 51, max: 75, speed: 2}
+    - {min: 76, max: 100, speed: 1}
+  general_bonus: 1  # Extra movement when general present
+
+# Combat settings
+combat:
+  base_attrition: 0.05  # Base 5% strength loss per turn
+  size_penalty: 0.02  # Additional 2% per 20 soldier difference
+  flanking_bonus: 0.03  # Additional 3% damage per flanking unit
+  general_bonus: 0.25  # 25% extra damage with general
+
+# Supply mechanics
+supply:
+  base_range: 5  # Direct distance from HQ or supply chain
+  consumption:
+    stationary: 1
+    moving: 2
+    combat: 3
+
+# Visibility
+visibility:
+  base_range: 4
+  forest_penalty: -2
+  mountain_bonus: 2
+
+# Scoring
+scoring:
+  elimination_factor: 0.1  # 1 point per 10 strength eliminated
+  fort_control: 5
+  hq_capture: 15
+
+# Tile types and their effects
+tiles:
+  headquarters:
+    movement_modifier: 1.0
+    defense_modifier: 1.5
+    supply_source: true
+    visibility_modifier: 0
+    food_generation: 5
+    points: 0
+    
+  plain:
+    movement_modifier: 1.0
+    defense_modifier: 1.0
+    supply_source: false
+    visibility_modifier: 0
+    food_generation: 0
+    points: 0
+    
+  fort:
+    movement_modifier: 1.0
+    defense_modifier: 1.2
+    supply_source: false
+    visibility_modifier: 0
+    food_generation: 2
+    points: 5
+    
+  forest:
+    movement_modifier: 0.5
+    defense_modifier: 1.1
+    supply_source: false
+    visibility_modifier: -2
+    food_generation: 0
+    points: 0
+    
+  valley:
+    movement_modifier: 1.0
+    defense_modifier: 1.0
+    supply_source: false
+    visibility_modifier: 0
+    food_generation: 0
+    points: 0
+    
+  river:
+    movement_modifier: 0.5
+    defense_modifier: 1.0
+    supply_source: false
+    visibility_modifier: 0
+    food_generation: 0
+    points: 0
+    
+  mountain:
+    movement_modifier: 0.5
+    defense_modifier: 1.15
+    supply_source: false
+    visibility_modifier: 2
+    food_generation: 0
+    points: 0
+
+# Colors for rendering
+colors:
+  players:
+    - [255, 0, 0]    # Red
+    - [0, 0, 255]    # Blue
+    - [0, 255, 0]    # Green
+    - [255, 255, 0]  # Yellow
+  
+  tiles:
+    headquarters: [200, 200, 200]
+    plain: [240, 240, 200]
+    fort: [150, 150, 150]
+    forest: [0, 100, 0]
+    valley: [200, 230, 180]
+    river: [100, 100, 255]
+    mountain: [120, 100, 80]
+  
+  ui:
+    background: [30, 30, 30]
+    text: [255, 255, 255]
+    highlight: [255, 255, 0]
+    selection: [0, 255, 255]
