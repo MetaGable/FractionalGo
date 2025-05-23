@@ -55,6 +55,9 @@ def main():
             # Pass events to UI manager
             ui_manager.process_events(event)
             
+            # Pass events to UI controls
+            ui_controls.process_events(event)
+            
             # Handle game-specific events
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:  # Left click

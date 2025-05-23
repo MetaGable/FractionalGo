@@ -43,6 +43,7 @@ class UIControls:
         )
         self.control_panel = UIPanel(
             relative_rect=control_panel_rect,
+            starting_layer_height=1,
             manager=self.ui_manager
         )
         
@@ -76,6 +77,7 @@ class UIControls:
         )
         self.army_panel = UIPanel(
             relative_rect=army_panel_rect,
+            starting_layer_height=1,
             manager=self.ui_manager
         )
         
@@ -204,6 +206,7 @@ class UIControls:
         
         self.split_dialog = UIPanel(
             relative_rect=dialog_rect,
+            starting_layer_height=1,
             manager=self.ui_manager
         )
         
