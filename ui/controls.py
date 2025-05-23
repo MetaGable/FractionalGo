@@ -5,7 +5,7 @@ Handles buttons, panels and user interaction elements
 
 import pygame
 import pygame_gui
-from pygame_gui.elements import UIButton, UIPanel, UILabel, UISlider, UITextBox
+from pygame_gui.elements import UIButton, UIPanel, UILabel, UIHorizontalSlider, UITextBox
 from typing import Dict, Tuple, List, Optional, Any
 
 from game.state import GameState
@@ -232,7 +232,7 @@ class UIControls:
         slider_rect = pygame.Rect(
             20, 80, dialog_width - 40, 20
         )
-        self.split_slider = UISlider(
+        self.split_slider = UIHorizontalSlider(
             relative_rect=slider_rect,
             start_value=1,
             value_range=(1, army.strength - 1),
@@ -275,7 +275,7 @@ class UIControls:
         food_slider_rect = pygame.Rect(
             20, 160, dialog_width - 40, 20
         )
-        self.split_food_slider = UISlider(
+        self.split_food_slider = UIHorizontalSlider(
             relative_rect=food_slider_rect,
             start_value=1,
             value_range=(1, army.food - 1),
